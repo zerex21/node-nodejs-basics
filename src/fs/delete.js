@@ -2,8 +2,24 @@ import {
     unlink
 } from "node:fs"
 
-const fileDelete = new URL('./files/fileToRemove.txt',
+import {
+    fileURLToPath
+} from 'url';
+
+import {
+    dirname
+} from 'path';
+
+import {
+    join
+} from "node:path";
+
+
+const __filename = fileURLToPath(
     import.meta.url);
+const __dirname = dirname(__filename);
+
+const fileDelete = join(__dirname, "files", "fileToRemove.txt")
 
 const remove = async () => {
     unlink(fileDelete, (err) => {

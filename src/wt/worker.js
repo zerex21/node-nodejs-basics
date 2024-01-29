@@ -1,7 +1,6 @@
 import {
     parentPort,
-    workerData,
-    Worker,
+    workerData
 } from 'node:worker_threads';
 
 /* import {

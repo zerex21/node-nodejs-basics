@@ -3,7 +3,24 @@ import {
     stat
 } from 'node:fs';
 
-const pathsToCheck = ['./files', './files_copy'];
+import {
+    fileURLToPath
+} from 'url';
+
+import {
+    dirname
+} from 'path';
+
+import {
+    join
+} from "node:path";
+
+
+const __filename = fileURLToPath(
+    import.meta.url);
+const __dirname = dirname(__filename);
+
+const pathsToCheck = [join(__dirname, "files"), join(__dirname, "files_copy")];
 
 const copy = async () => {
 
