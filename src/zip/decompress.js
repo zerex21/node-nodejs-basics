@@ -9,7 +9,25 @@ import {
     createGunzip
 } from 'node:zlib';
 
-const pathFileZip = ['../fileToCompress.txt', '../archive.gz']
+import {
+    fileURLToPath
+} from 'url';
+
+import {
+    dirname
+} from 'path';
+
+import {
+    join
+} from "node:path";
+
+
+const __filename = fileURLToPath(
+    import.meta.url);
+const __dirname = dirname(__filename);
+
+const pathFileZip = [join(__dirname, 'fileToCompress.txt'), join(__dirname, 'files', 'archive.gz')]
+
 
 const decompress = async () => {
 

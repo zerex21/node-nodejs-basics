@@ -7,9 +7,24 @@ import {
     stdout,
 } from 'node:process';
 
+import {
+    fileURLToPath
+} from 'url';
 
-const fileWrite = new URL('./files/fileToWrite.txt',
+import {
+    dirname
+} from 'path';
+
+import {
+    join
+} from "node:path";
+
+
+const __filename = fileURLToPath(
     import.meta.url);
+const __dirname = dirname(__filename);
+
+const fileWrite = join(__dirname, 'files', 'fileToWrite.txt');
 
 const write = async () => {
 
